@@ -1,0 +1,32 @@
+
+#restart {
+    background-color:powderblue;
+    height:100px;
+    width: 500px;
+    font-size: 50px;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: darkblue;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    
+}
+
+#grid {
+    display:grid;
+    grid-template-columns: repeat(16, auto);
+    grid-template-rows: repeat(16, auto);
+    height:500px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gridelement {
+    background-color: bisque;
+    height: auto;
+    width:auto;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Etch a Sketch Project</title>
+</head>
+
+<body>
+
+    <button id='restart'>Restart</button>
+    <div id='grid'></div>
+</body>
+
+<script>
+
+    let div = [];
+    let i = 1;
+    let nbofGrids = 256
+
+    function createGrid(i, nbofGrids) {
+
+        //  document.getElementById('grid').removeChild(div);
+
+        let list = document.getElementById("grid");
+        while (list.hasChildNodes()) {
+            list.removeChild(list.firstChild);
+        }
+
+
+        for (i = 1; i <= nbofGrids * nbofGrids; i++) {
+
+            div[i] = document.createElement('div');
+            div[i].classList.add('gridelement');
+            document.getElementById('grid').appendChild(div[i]);
+            document.getElementById('grid').style.gridTemplateRows = `repeat(${nbofGrids}, auto)`;
+            document.getElementById('grid').style.gridTemplateColumns = `repeat(${nbofGrids}, auto)`;
+            animateGrid(i);
+        }
+    }
+    // At first this function was inside the loop, it didn't work, I don't understand why
+    function animateGrid(i) {
+        div[i].addEventListener("mouseover", () => { div[i].style.cssText = 'background: black'; })
+    }
+
+    restart.addEventListener('click', eraseGrid);
+
+
+    function eraseGrid() {
+        div.forEach((divref => divref.style.cssText = 'background: bisque'));
+        newGrid()
+    }
+
+    function newGrid() {
+
+        nbGrid = prompt('How many grids ?',
+            'write number');
+
+
+        createGrid(1, nbGrid);
+
+    }
+
+</script>
+
+</html>
